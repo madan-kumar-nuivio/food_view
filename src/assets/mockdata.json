@@ -1,0 +1,126 @@
+{
+  "stats": [
+    { "id": "total-orders", "label": "Total Orders", "value": "75", "icon": "ShoppingBag", "trend": "+12%", "trendUp": true },
+    { "id": "total-delivered", "label": "Total Delivered", "value": "70", "icon": "CheckCircle", "trend": "+8%", "trendUp": true },
+    { "id": "total-cancelled", "label": "Total Cancelled", "value": "05", "icon": "XCircle", "trend": "-2%", "trendUp": false },
+    { "id": "total-revenue", "label": "Total Revenue", "value": "$12k", "icon": "DollarSign", "trend": "+15%", "trendUp": true },
+    { "id": "total-pending", "label": "Total Pending", "value": "12", "icon": "Clock", "trend": "+3%", "trendUp": true }
+  ],
+  "orderSummary": [
+    { "label": "On Delivery", "value": 30, "total": 75, "color": "#7C3AED" },
+    { "label": "Delivered", "value": 35, "total": 75, "color": "#10B981" },
+    { "label": "Cancelled", "value": 5, "total": 75, "color": "#EF4444" }
+  ],
+  "overview": [
+    { "name": "On Delivery", "value": 30, "color": "#7C3AED" },
+    { "name": "Delivered", "value": 35, "color": "#10B981" },
+    { "name": "Cancelled", "value": 5, "color": "#EF4444" }
+  ],
+  "topSelling": [
+    { "id": 1, "name": "Chicken Burger", "price": "$12.99", "image": "🍔" },
+    { "id": 2, "name": "Veggie Pizza", "price": "$14.50", "image": "🍕" },
+    { "id": 3, "name": "Caesar Salad", "price": "$8.99", "image": "🥗" }
+  ],
+  "customerMap": [
+    { "day": "Mon", "thisWeek": 40, "lastWeek": 30 },
+    { "day": "Tue", "thisWeek": 35, "lastWeek": 45 },
+    { "day": "Wed", "thisWeek": 50, "lastWeek": 35 },
+    { "day": "Thu", "thisWeek": 45, "lastWeek": 40 },
+    { "day": "Fri", "thisWeek": 60, "lastWeek": 50 },
+    { "day": "Sat", "thisWeek": 55, "lastWeek": 45 },
+    { "day": "Sun", "thisWeek": 70, "lastWeek": 55 }
+  ],
+  "revenue": [
+    { "month": "Jan", "revenue": 5000 },
+    { "month": "Feb", "revenue": 7500 },
+    { "month": "Mar", "revenue": 6000 },
+    { "month": "Apr", "revenue": 8000 },
+    { "month": "May", "revenue": 9500 },
+    { "month": "Jun", "revenue": 11000 },
+    { "month": "Jul", "revenue": 10000 },
+    { "month": "Aug", "revenue": 12000 },
+    { "month": "Sep", "revenue": 11500 },
+    { "month": "Oct", "revenue": 13000 },
+    { "month": "Nov", "revenue": 14000 },
+    { "month": "Dec", "revenue": 15000 }
+  ],
+  "orders": [
+    { "id": "#45671", "customerName": "Joe Martin", "avatar": "https://ui-avatars.com/api/?name=Joe+Martin&background=7C3AED&color=fff", "payment": "Online", "location": "132, My Street BG", "status": "Delivered", "contact": "821 456 269" },
+    { "id": "#45672", "customerName": "Peterson", "avatar": "https://ui-avatars.com/api/?name=Peterson&background=7C3AED&color=fff", "payment": "Online", "location": "8, My Street, Lagos", "status": "Delivered", "contact": "821 456 264" },
+    { "id": "#45673", "customerName": "Shaleena", "avatar": "https://ui-avatars.com/api/?name=Shaleena&background=7C3AED&color=fff", "payment": "Cash on delivery", "location": "33 3rd Ave, NY", "status": "On Delivery", "contact": "821 456 267" },
+    { "id": "#45674", "customerName": "Patrik", "avatar": "https://ui-avatars.com/api/?name=Patrik&background=7C3AED&color=fff", "payment": "Online", "location": "400 Broom St, NY", "status": "Cancelled", "contact": "821 456 265" },
+    { "id": "#45675", "customerName": "Angeline", "avatar": "https://ui-avatars.com/api/?name=Angeline&background=7C3AED&color=fff", "payment": "Cash on delivery", "location": "25 U Square, NY", "status": "On Delivery", "contact": "821 456 266" },
+    { "id": "#45676", "customerName": "Denvar", "avatar": "https://ui-avatars.com/api/?name=Denvar&background=7C3AED&color=fff", "payment": "Online", "location": "28 U Square, NY", "status": "Delivered", "contact": "821 456 261" },
+    { "id": "#45677", "customerName": "Jamison", "avatar": "https://ui-avatars.com/api/?name=Jamison&background=7C3AED&color=fff", "payment": "Online", "location": "22 Seal Street, NY", "status": "Delivered", "contact": "821 456 261" },
+    { "id": "#45678", "customerName": "Angeline", "avatar": "https://ui-avatars.com/api/?name=Angeline&background=7C3AED&color=fff", "payment": "Cash on delivery", "location": "25 U Square, NY", "status": "On Delivery", "contact": "821 456 266" },
+    { "id": "#45679", "customerName": "Patrik", "avatar": "https://ui-avatars.com/api/?name=Patrik&background=7C3AED&color=fff", "payment": "Online", "location": "400 Broom St, NY", "status": "Cancelled", "contact": "821 456 265" }
+  ],
+  "customers": [
+    { "id": "CUS-001", "name": "Joe Martin", "avatar": "https://ui-avatars.com/api/?name=Joe+Martin&background=7C3AED&color=fff", "email": "joe.martin@email.com", "phone": "821 456 269", "location": "132, My Street BG", "totalOrders": 12, "totalSpent": "$458.50", "status": "Active", "joinDate": "Jan 15, 2024" },
+    { "id": "CUS-002", "name": "Peterson", "avatar": "https://ui-avatars.com/api/?name=Peterson&background=10B981&color=fff", "email": "peterson@email.com", "phone": "821 456 264", "location": "8, My Street, Lagos", "totalOrders": 8, "totalSpent": "$312.00", "status": "Active", "joinDate": "Feb 20, 2024" },
+    { "id": "CUS-003", "name": "Shaleena", "avatar": "https://ui-avatars.com/api/?name=Shaleena&background=F59E0B&color=fff", "email": "shaleena@email.com", "phone": "821 456 267", "location": "33 3rd Ave, NY", "totalOrders": 5, "totalSpent": "$189.75", "status": "Active", "joinDate": "Mar 10, 2024" },
+    { "id": "CUS-004", "name": "Patrik", "avatar": "https://ui-avatars.com/api/?name=Patrik&background=EF4444&color=fff", "email": "patrik@email.com", "phone": "821 456 265", "location": "400 Broom St, NY", "totalOrders": 2, "totalSpent": "$67.30", "status": "Inactive", "joinDate": "Apr 05, 2024" },
+    { "id": "CUS-005", "name": "Angeline", "avatar": "https://ui-avatars.com/api/?name=Angeline&background=3B82F6&color=fff", "email": "angeline@email.com", "phone": "821 456 266", "location": "25 U Square, NY", "totalOrders": 15, "totalSpent": "$623.40", "status": "Active", "joinDate": "Jan 02, 2024" },
+    { "id": "CUS-006", "name": "Denver", "avatar": "https://ui-avatars.com/api/?name=Denver&background=8B5CF6&color=fff", "email": "denver@email.com", "phone": "821 456 261", "location": "28 U Square, NY", "totalOrders": 7, "totalSpent": "$284.90", "status": "Active", "joinDate": "Feb 14, 2024" },
+    { "id": "CUS-007", "name": "Jamison", "avatar": "https://ui-avatars.com/api/?name=Jamison&background=EC4899&color=fff", "email": "jamison@email.com", "phone": "821 456 261", "location": "22 Seal Street, NY", "totalOrders": 10, "totalSpent": "$415.60", "status": "Active", "joinDate": "Dec 28, 2023" },
+    { "id": "CUS-008", "name": "Angeline M.", "avatar": "https://ui-avatars.com/api/?name=Angeline+M&background=14B8A6&color=fff", "email": "angeline.m@email.com", "phone": "821 456 270", "location": "50 Park Ave, NY", "totalOrders": 1, "totalSpent": "$24.99", "status": "New", "joinDate": "May 01, 2024" },
+    { "id": "CUS-009", "name": "Marcus Lee", "avatar": "https://ui-avatars.com/api/?name=Marcus+Lee&background=7C3AED&color=fff", "email": "marcus.lee@email.com", "phone": "821 456 272", "location": "15 Broadway, NY", "totalOrders": 20, "totalSpent": "$842.10", "status": "Active", "joinDate": "Nov 12, 2023" },
+    { "id": "CUS-010", "name": "Sarah Kim", "avatar": "https://ui-avatars.com/api/?name=Sarah+Kim&background=F59E0B&color=fff", "email": "sarah.kim@email.com", "phone": "821 456 275", "location": "88 5th Ave, NY", "totalOrders": 0, "totalSpent": "$0.00", "status": "Inactive", "joinDate": "Apr 22, 2024" },
+    { "id": "CUS-011", "name": "Raj Patel", "avatar": "https://ui-avatars.com/api/?name=Raj+Patel&background=10B981&color=fff", "email": "raj.patel@email.com", "phone": "821 456 278", "location": "42 Elm St, NY", "totalOrders": 3, "totalSpent": "$98.50", "status": "New", "joinDate": "May 10, 2024" },
+    { "id": "CUS-012", "name": "Emily Chen", "avatar": "https://ui-avatars.com/api/?name=Emily+Chen&background=EC4899&color=fff", "email": "emily.chen@email.com", "phone": "821 456 280", "location": "77 Hudson St, NY", "totalOrders": 9, "totalSpent": "$367.25", "status": "Active", "joinDate": "Jan 30, 2024" }
+  ],
+  "chatUsers": [
+    { "id": "joe-martin", "name": "Joe Martin", "avatar": "https://ui-avatars.com/api/?name=Joe+Martin&background=7C3AED&color=fff", "lastMessage": "I'll check on it right away", "time": "2m ago", "unread": 2, "online": true },
+    { "id": "peterson", "name": "Peterson", "avatar": "https://ui-avatars.com/api/?name=Peterson&background=10B981&color=fff", "lastMessage": "Thanks for the update!", "time": "15m ago", "online": true },
+    { "id": "shaleena", "name": "Shaleena", "avatar": "https://ui-avatars.com/api/?name=Shaleena&background=F59E0B&color=fff", "lastMessage": "When will my order arrive?", "time": "1h ago", "online": false },
+    { "id": "patrik", "name": "Patrik", "avatar": "https://ui-avatars.com/api/?name=Patrik&background=EF4444&color=fff", "lastMessage": "Please cancel my order", "time": "2h ago", "online": false },
+    { "id": "angeline", "name": "Angeline", "avatar": "https://ui-avatars.com/api/?name=Angeline&background=3B82F6&color=fff", "lastMessage": "That's great, thank you!", "time": "3h ago", "online": true },
+    { "id": "denver", "name": "Denver", "avatar": "https://ui-avatars.com/api/?name=Denver&background=8B5CF6&color=fff", "lastMessage": "Can I change my delivery address?", "time": "5h ago", "online": false },
+    { "id": "jamison", "name": "Jamison", "avatar": "https://ui-avatars.com/api/?name=Jamison&background=EC4899&color=fff", "lastMessage": "Order received, thanks!", "time": "1d ago", "online": false },
+    { "id": "angeline2", "name": "Angeline M.", "avatar": "https://ui-avatars.com/api/?name=Angeline+M&background=14B8A6&color=fff", "lastMessage": "How do I track my delivery?", "time": "1d ago", "online": false }
+  ],
+  "chatMessages": {
+    "joe-martin": [
+      { "id": "m1", "senderId": "joe-martin", "text": "Hi, I placed an order about 30 minutes ago but I noticed that the side salad is missing from my order.", "time": "10:30 AM", "isOwn": false },
+      { "id": "m2", "senderId": "admin", "text": "Hello Joe! I'm sorry about that. Let me check your order details right away.", "time": "10:32 AM", "isOwn": true },
+      { "id": "m3", "senderId": "joe-martin", "text": "Sure, my order number is #45671.", "time": "10:33 AM", "isOwn": false },
+      { "id": "m4", "senderId": "admin", "text": "I can see your order. You're right, the side salad was missed. I'll have it sent out to you immediately with a complimentary drink for the inconvenience.", "time": "10:35 AM", "isOwn": true },
+      { "id": "m5", "senderId": "joe-martin", "text": "That's really kind of you, thank you so much!", "time": "10:36 AM", "isOwn": false },
+      { "id": "m6", "senderId": "admin", "text": "You're welcome! The salad should arrive within 15 minutes. Is there anything else I can help with?", "time": "10:37 AM", "isOwn": true },
+      { "id": "m7", "senderId": "joe-martin", "text": "No, that's all. Thanks again!", "time": "10:38 AM", "isOwn": false },
+      { "id": "m8", "senderId": "admin", "text": "I'll check on it right away. Have a great day, Joe! 😊", "time": "10:39 AM", "isOwn": true }
+    ],
+    "peterson": [
+      { "id": "m1", "senderId": "peterson", "text": "Hey, just wanted to confirm my order was delivered to the right address.", "time": "9:15 AM", "isOwn": false },
+      { "id": "m2", "senderId": "admin", "text": "Hi Peterson! Yes, your order #45672 was delivered to 8, My Street, Lagos. Can you confirm?", "time": "9:17 AM", "isOwn": true },
+      { "id": "m3", "senderId": "peterson", "text": "Yes, got it. Thanks for the update!", "time": "9:18 AM", "isOwn": false }
+    ],
+    "shaleena": [
+      { "id": "m1", "senderId": "shaleena", "text": "Hello, when will my order arrive? It's been a while.", "time": "8:00 AM", "isOwn": false },
+      { "id": "m2", "senderId": "admin", "text": "Hi Shaleena! Let me check on your order #45673. It's currently on the way to you.", "time": "8:05 AM", "isOwn": true },
+      { "id": "m3", "senderId": "shaleena", "text": "When will my order arrive?", "time": "8:10 AM", "isOwn": false }
+    ],
+    "patrik": [
+      { "id": "m1", "senderId": "patrik", "text": "I'd like to cancel my order #45674 please.", "time": "7:30 AM", "isOwn": false },
+      { "id": "m2", "senderId": "admin", "text": "Hi Patrik, I'm sorry to hear that. May I know the reason for cancellation?", "time": "7:32 AM", "isOwn": true },
+      { "id": "m3", "senderId": "patrik", "text": "Please cancel my order", "time": "7:35 AM", "isOwn": false }
+    ],
+    "angeline": [
+      { "id": "m1", "senderId": "angeline", "text": "Is my order on the way?", "time": "6:00 AM", "isOwn": false },
+      { "id": "m2", "senderId": "admin", "text": "Yes Angeline! Your order is currently being delivered. ETA is about 20 minutes.", "time": "6:05 AM", "isOwn": true },
+      { "id": "m3", "senderId": "angeline", "text": "That's great, thank you!", "time": "6:07 AM", "isOwn": false }
+    ],
+    "denver": [
+      { "id": "m1", "senderId": "denver", "text": "Hi, can I change my delivery address?", "time": "Yesterday", "isOwn": false },
+      { "id": "m2", "senderId": "admin", "text": "Hi Denver! Let me check if the order has been dispatched yet.", "time": "Yesterday", "isOwn": true }
+    ],
+    "jamison": [
+      { "id": "m1", "senderId": "jamison", "text": "Order received, thanks!", "time": "Yesterday", "isOwn": false },
+      { "id": "m2", "senderId": "admin", "text": "Glad to hear it, Jamison! Enjoy your meal!", "time": "Yesterday", "isOwn": true }
+    ],
+    "angeline2": [
+      { "id": "m1", "senderId": "angeline2", "text": "How do I track my delivery?", "time": "Yesterday", "isOwn": false },
+      { "id": "m2", "senderId": "admin", "text": "You can track your delivery in the app under 'My Orders'. You'll see a live map with your driver's location.", "time": "Yesterday", "isOwn": true }
+    ]
+  }
+}
