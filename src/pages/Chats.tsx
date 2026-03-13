@@ -1,22 +1,34 @@
 import { useState, useRef, useEffect } from 'react';
 import { Phone, Video, MoreVertical, Send, Paperclip, Smile } from 'lucide-react';
 import SearchBar from '../components/ui/SearchBar';
-import { getChatUsers, getChatMessages } from '../services/mockDataService';
+import { getChatUsers, getChatMessages, sendChatMessage } from '../services/mockDataService';
 import { useStore } from '../store/useStore';
-import type { ChatMessage } from '../types';
+import type { ChatUser, ChatMessage } from '../types';
 
 export default function Chats() {
-  const chatUsers = getChatUsers();
   const { activeChatId, setActiveChatId } = useStore();
+  const [chatUsers, setChatUsers] = useState<ChatUser[]>([]);
+  const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [search, setSearch] = useState('');
   const [messageInput, setMessageInput] = useState('');
-  const [localMessages, setLocalMessages] = useState<Record<string, ChatMessage[]>>({});
+  const [loading, setLoading] = useState(true);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
+  // Load chat users on mount
+  useEffect(() => {
+    getChatUsers().then((users) => {
+      setChatUsers(users);
+      setLoading(false);
+    });
+  }, []);
+
+  // Load messages when active chat changes
+  useEffect(() => {
+    if (!activeChatId) return;
+    getChatMessages(activeChatId).then(setMessages);
+  }, [activeChatId]);
+
   const activeUser = chatUsers.find((u) => u.id === activeChatId);
-  const baseMessages = getChatMessages(activeChatId);
-  const extraMessages = localMessages[activeChatId] || [];
-  const messages = [...baseMessages, ...extraMessages];
 
   const filteredUsers = chatUsers.filter((u) =>
     u.name.toLowerCase().includes(search.toLowerCase())
@@ -26,21 +38,39 @@ export default function Chats() {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages.length]);
 
-  const handleSend = () => {
+  const handleSend = async () => {
     if (!messageInput.trim()) return;
-    const newMsg: ChatMessage = {
+    const text = messageInput.trim();
+    setMessageInput('');
+
+    // Optimistic update
+    const optimistic: ChatMessage = {
       id: `local-${Date.now()}`,
       senderId: 'admin',
-      text: messageInput.trim(),
+      text,
       time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
       isOwn: true,
     };
-    setLocalMessages((prev) => ({
-      ...prev,
-      [activeChatId]: [...(prev[activeChatId] || []), newMsg],
-    }));
-    setMessageInput('');
+    setMessages((prev) => [...prev, optimistic]);
+
+    // Send to API
+    try {
+      const saved = await sendChatMessage(activeChatId, text);
+      setMessages((prev) =>
+        prev.map((m) => (m.id === optimistic.id ? saved : m))
+      );
+    } catch {
+      // Keep optimistic message on failure
+    }
   };
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-64">
+        <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin" />
+      </div>
+    );
+  }
 
   return (
     <div className="flex bg-white rounded-2xl shadow-sm overflow-hidden" style={{ height: 'calc(100vh - 140px)' }}>

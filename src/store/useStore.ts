@@ -10,7 +10,7 @@ interface AppState {
 
 export const useStore = create<AppState>((set) => ({
   sidebarOpen: true,
-  activeChatId: 'joe-martin',
+  activeChatId: 'a1000001-0000-0000-0000-000000000001',
   toggleSidebar: () => set((state) => ({ sidebarOpen: !state.sidebarOpen })),
   setSidebarOpen: (open) => set({ sidebarOpen: open }),
   setActiveChatId: (id) => set({ activeChatId: id }),

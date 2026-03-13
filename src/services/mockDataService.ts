@@ -1,4 +1,3 @@
-import data from '../assets/mockdata.json';
 import type {
   StatCardData,
   OrderSummaryItem,
@@ -12,14 +11,32 @@ import type {
   ChatMessage,
 } from '../types';
 
-export const getStats = (): StatCardData[] => data.stats;
-export const getOrderSummary = (): OrderSummaryItem[] => data.orderSummary;
-export const getOverview = (): OverviewSlice[] => data.overview;
-export const getTopSelling = (): TopSellingItem[] => data.topSelling;
-export const getCustomerMap = (): CustomerMapEntry[] => data.customerMap;
-export const getRevenue = (): RevenueEntry[] => data.revenue;
-export const getOrders = (): Order[] => data.orders as Order[];
-export const getCustomers = (): Customer[] => data.customers as Customer[];
-export const getChatUsers = (): ChatUser[] => data.chatUsers;
-export const getChatMessages = (chatId: string): ChatMessage[] =>
-  (data.chatMessages as Record<string, ChatMessage[]>)[chatId] || [];
+const API_BASE = 'https://svnmczgmurkwxxozrgfk.supabase.co/functions/v1/api';
+
+async function fetchApi<T>(endpoint: string): Promise<T> {
+  const res = await fetch(`${API_BASE}/${endpoint}`);
+  if (!res.ok) throw new Error(`API error: ${res.status}`);
+  return res.json();
+}
+
+export const getStats = (): Promise<StatCardData[]> => fetchApi('stats');
+export const getOrderSummary = (): Promise<OrderSummaryItem[]> => fetchApi('order-summary');
+export const getOverview = (): Promise<OverviewSlice[]> => fetchApi('overview');
+export const getTopSelling = (): Promise<TopSellingItem[]> => fetchApi('top-selling');
+export const getCustomerMap = (): Promise<CustomerMapEntry[]> => fetchApi('customer-map');
+export const getRevenue = (): Promise<RevenueEntry[]> => fetchApi('revenue');
+export const getOrders = (): Promise<Order[]> => fetchApi('orders');
+export const getCustomers = (): Promise<Customer[]> => fetchApi('customers');
+export const getChatUsers = (): Promise<ChatUser[]> => fetchApi('chat-users');
+export const getChatMessages = (chatId: string): Promise<ChatMessage[]> =>
+  fetchApi(`chat-messages?conversationId=${chatId}`);
+
+export async function sendChatMessage(conversationId: string, text: string): Promise<ChatMessage> {
+  const res = await fetch(`${API_BASE}/chat-messages`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ conversationId, text }),
+  });
+  if (!res.ok) throw new Error(`API error: ${res.status}`);
+  return res.json();
+}

@@ -1,17 +1,34 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Mail, Phone } from 'lucide-react';
 import SearchBar from '../components/ui/SearchBar';
 import { getCustomers } from '../services/mockDataService';
+import type { Customer } from '../types';
 
 export default function Customers() {
-  const allCustomers = getCustomers();
+  const [allCustomers, setAllCustomers] = useState<Customer[]>([]);
   const [search, setSearch] = useState('');
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    getCustomers().then((data) => {
+      setAllCustomers(data);
+      setLoading(false);
+    });
+  }, []);
 
   const filtered = allCustomers.filter((c) =>
     c.name.toLowerCase().includes(search.toLowerCase()) ||
     c.email.toLowerCase().includes(search.toLowerCase()) ||
     c.id.toLowerCase().includes(search.toLowerCase())
   );
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-64">
+        <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin" />
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-4">

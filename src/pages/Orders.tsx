@@ -1,21 +1,38 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Phone } from 'lucide-react';
 import SearchBar from '../components/ui/SearchBar';
 import Dropdown from '../components/ui/Dropdown';
 import Badge from '../components/ui/Badge';
 import { getOrders } from '../services/mockDataService';
+import type { Order } from '../types';
 
 export default function Orders() {
-  const allOrders = getOrders();
+  const [allOrders, setAllOrders] = useState<Order[]>([]);
   const [search, setSearch] = useState('');
   const [dateFilter, setDateFilter] = useState('Today');
   const [yearFilter, setYearFilter] = useState('2024');
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    getOrders().then((data) => {
+      setAllOrders(data);
+      setLoading(false);
+    });
+  }, []);
 
   const filtered = allOrders.filter(
     (o) =>
       o.customerName.toLowerCase().includes(search.toLowerCase()) ||
       o.id.toLowerCase().includes(search.toLowerCase())
   );
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-64">
+        <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin" />
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-4">

@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import StatCard from '../components/ui/StatCard';
 import Card from '../components/ui/Card';
 import ProgressRing from '../components/charts/ProgressRing';
@@ -13,16 +14,51 @@ import {
   getCustomerMap,
   getRevenue,
 } from '../services/mockDataService';
-import { useState } from 'react';
+import type {
+  StatCardData,
+  OrderSummaryItem,
+  OverviewSlice,
+  TopSellingItem,
+  CustomerMapEntry,
+  RevenueEntry,
+} from '../types';
 
 export default function Dashboard() {
-  const stats = getStats();
-  const orderSummary = getOrderSummary();
-  const overview = getOverview();
-  const topSelling = getTopSelling();
-  const customerMap = getCustomerMap();
-  const revenue = getRevenue();
+  const [stats, setStats] = useState<StatCardData[]>([]);
+  const [orderSummary, setOrderSummary] = useState<OrderSummaryItem[]>([]);
+  const [overview, setOverview] = useState<OverviewSlice[]>([]);
+  const [topSelling, setTopSelling] = useState<TopSellingItem[]>([]);
+  const [customerMap, setCustomerMap] = useState<CustomerMapEntry[]>([]);
+  const [revenue, setRevenue] = useState<RevenueEntry[]>([]);
   const [period] = useState('This Week');
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    Promise.all([
+      getStats(),
+      getOrderSummary(),
+      getOverview(),
+      getTopSelling(),
+      getCustomerMap(),
+      getRevenue(),
+    ]).then(([s, os, ov, ts, cm, rv]) => {
+      setStats(s);
+      setOrderSummary(os);
+      setOverview(ov);
+      setTopSelling(ts);
+      setCustomerMap(cm);
+      setRevenue(rv);
+      setLoading(false);
+    });
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-64">
+        <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin" />
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-6">
